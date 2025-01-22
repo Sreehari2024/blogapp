@@ -15,7 +15,7 @@ const Home = () => {
    const[cardData,setData]=useState([]);
    const navigate= useNavigate();
    useEffect(()=>{
-    axiosInstance.get('http://localhost:3000/addblog/blogs').then((res)=>{
+    axiosInstance.get('/api/addblog/blogs').then((res)=>{
        setData(res.data);
     }).catch((err)=>{
       console.log(err)
@@ -31,7 +31,7 @@ const Home = () => {
    function deleteBlog(blogId) {
     if (window.confirm('Are you sure you want to delete this blog?')) {
       axiosInstance
-        .delete('http://localhost:3000/addblog/delete/${blogId}')
+        .delete('/api/addblog/delete/${blogId}')
         .then(() => {
           setData((prevData) => prevData.filter((blog) => blog._id !== blogId)); // Update state directly
           alert('Blog deleted successfully'); // Display success message

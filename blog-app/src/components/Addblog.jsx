@@ -34,14 +34,14 @@ const Addblog = () => {
 
   const capValue = () => {
     if(location.state!=null){
-      axiosInstance.put('http://localhost:3000/edit/' +location.state.val._id,formData).then((res)=>{
+      axiosInstance.put('/api/edit/' +location.state.val._id,formData).then((res)=>{
         alert(res.data.message);
       navigate('/home');
       }).catch((error)=>{
         alert('error updating blog:'+error.message);
       });
       }else{
-    axiosInstance.post('http://localhost:3000/addblog/add', formData).then((res) => {
+    axiosInstance.post('/api/addblog/add', formData).then((res) => {
         alert(res.data.message);
         navigate('/home');
       }).catch((error) => {

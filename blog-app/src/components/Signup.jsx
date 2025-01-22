@@ -77,7 +77,7 @@ const Signup = () => {
     const { email, password,  phone, address } = form;
 
     
-    axios.post('http://localhost:3000/user/signup',{ email, password, phone, address }).then((res) => {
+    axios.post('/api/user/signup',{ email, password, phone, address }).then((res) => {
         alert(res.data.message);
       }).catch((error) => {
         const errorMsg = error.response?.data?.message || 'Registration failed.';
